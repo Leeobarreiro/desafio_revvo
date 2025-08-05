@@ -15,6 +15,17 @@ include 'includes/db.php';
 
 <?php include 'includes/header.php'; ?>
 
+<?php if (!isset($_GET['no_modal'])): ?>
+  <div id="meuModal" class="modal">
+    <div class="modal-content">
+      <span id="fecharModal" class="close">&times;</span>
+      <h2>Bem-vindo(a)!</h2>
+      <p>Este é o seu primeiro acesso ao sistema. Explore os cursos e slides disponíveis!</p>
+    </div>
+  </div>
+<?php endif; ?>
+
+
 <div class="wrapper">
   <!-- Carrossel -->
   <div class="carousel-container">
