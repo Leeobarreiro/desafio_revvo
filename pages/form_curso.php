@@ -2,7 +2,7 @@
 include '../includes/db.php';
 
 $id = $_GET['id'] ?? null;
-$curso = ['nome' => '', 'descricao' => ''];
+$curso = ['nome' => '', 'descricao' => '', 'imagem' => ''];
 
 if ($id) {
     $stmt = $pdo->prepare("SELECT * FROM cursos WHERE id = ?");
@@ -11,25 +11,39 @@ if ($id) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title><?= $id ? 'Editar' : 'Novo' ?> Curso</title>
-</head>
-<body>
-  <h1><?= $id ? 'Editar' : 'Novo' ?> Curso</h1>
-  <form action="save_curso.php" method="POST">
-    <input type="hidden" name="id" value="<?= $id ?>">
-    <label>Nome:<br>
-      <input type="text" name="nome" required value="<?= $curso['nome'] ?>">
-    </label><br><br>
-    <label>Descrição:<br>
-      <textarea name="descricao" required><?= $curso['descricao'] ?></textarea>
-    </label><br><br>
-    <button type="submit">Salvar</button>
-  </form>
-  <br>
-  <a href="list_cursos.php">Voltar</a>
-</body>
-</html>
+<?php include '../includes/layout_start.php'; ?>
+<?php include '../includes/header.php'; ?>
+
+<div class="wrapper">
+  <div class="form-wrapper">
+    <h1><?= $id ? 'Editar' : 'Novo' ?> Curso</h1>
+
+    <form action="save_curso.php" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="<?= $id ?>">
+
+      <label>Nome:
+        <input type="text" name="nome" required value="<?= htmlspecialchars($curso['nome']) ?>">
+      </label>
+
+      <label>Descrição:
+        <textarea name="descricao" required><?= htmlspecialchars($curso['descricao']) ?></textarea>
+      </label>
+
+      <?php if (!empty($curso['imagem'])): ?>
+        <label>Imagem atual:</label>
+        <img src="../uploads/<?= $curso['imagem'] ?>" width="200">
+      <?php endif; ?>
+
+      <label>Imagem:
+        <input type="file" name="imagem">
+      </label>
+
+      <button type="submit">Salvar</button>
+    </form>
+
+    <a href="list_cursos.php" class="btn-voltar">Voltar</a>
+  </div>
+</div>
+
+<?php include '../includes/footer.php'; ?>
+<?php include '../includes/layout_end.php'; ?>

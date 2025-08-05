@@ -4,7 +4,7 @@ include '../includes/db.php';
 $id = $_POST['id'] ?? null;
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
-$link = $_POST['link'];
+$link = $_POST['link'] ?? '';
 $imagem = '';
 
 if ($_FILES['imagem']['name']) {
@@ -15,8 +15,8 @@ if ($_FILES['imagem']['name']) {
 
 if ($id) {
     if ($imagem) {
-        $stmt = $pdo->prepare("UPDATE slides SET titulo=?, descricao=?, link=?, imagem=? WHERE id=?");
-        $stmt->execute([$titulo, $descricao, $link, $imagem, $id]);
+        $stmt = $pdo->prepare("UPDATE slides SET titulo=?, descricao=?, imagem=?, link=? WHERE id=?");
+        $stmt->execute([$titulo, $descricao, $imagem, $link, $id]);
     } else {
         $stmt = $pdo->prepare("UPDATE slides SET titulo=?, descricao=?, link=? WHERE id=?");
         $stmt->execute([$titulo, $descricao, $link, $id]);
