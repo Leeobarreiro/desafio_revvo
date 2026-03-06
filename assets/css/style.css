@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ececec;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #fff;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.header-search input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.banner {
+    padding: 40px 0;
+    background: #ddd;
+    margin-bottom: 40px;
+}
+
+.cursos {
+    padding-bottom: 50px;
+}
+
+.cursos h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card-curso {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+.card-curso img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.card-curso h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card-curso p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background: green;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.footer {
+    background: #fff;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

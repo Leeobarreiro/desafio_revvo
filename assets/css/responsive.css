@@ -1,0 +1,19 @@
+@media (max-width: 1024px) {
+    .cursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .cursos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-search input {
+        width: 100%;
+    }
+}
