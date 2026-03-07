@@ -1,6 +1,7 @@
 <?php
 require_once '../../config/config.php';
 require_once '../../config/database.php';
+require_once '../middleware.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 

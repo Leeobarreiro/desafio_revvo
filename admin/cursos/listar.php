@@ -1,6 +1,7 @@
 <?php
 require_once '../../config/config.php';
 require_once '../../config/database.php';
+require_once '../middleware.php';
 
 $stmt = $pdo->query("SELECT * FROM cursos ORDER BY id DESC");
 $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC);

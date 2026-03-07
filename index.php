@@ -13,7 +13,6 @@ $cursos = [];
 $slides = [];
 
 try {
-
     $stmtCursos = $pdo->query("SELECT * FROM cursos ORDER BY id DESC");
     $cursos = $stmtCursos->fetchAll(PDO::FETCH_ASSOC);
 
@@ -27,12 +26,12 @@ try {
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desafio Revvo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Revvo</title>
 
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
 
@@ -40,111 +39,92 @@ try {
 
 <main>
 
-<!-- SLIDESHOW -->
-<section class="banner">
-<div class="container">
+    <section class="banner">
+        <div class="container">
 
-<?php if (!empty($slides)): ?>
+            <?php if (!empty($slides)): ?>
+                <div class="slideshow">
 
-<div class="slideshow">
+                    <?php foreach ($slides as $slide): ?>
+                        <div class="slide">
+                            <img
+                                src="assets/uploads/<?php echo htmlspecialchars($slide['imagem']); ?>"
+                                alt="<?php echo htmlspecialchars($slide['titulo']); ?>"
+                            >
 
-<?php foreach ($slides as $slide): ?>
+                            <div class="slide-content">
+                                <h2><?php echo htmlspecialchars($slide['titulo']); ?></h2>
 
-<div class="slide">
+                                <p><?php echo htmlspecialchars($slide['descricao']); ?></p>
 
-<img
-src="assets/uploads/<?php echo htmlspecialchars($slide['imagem']); ?>"
-alt="<?php echo htmlspecialchars($slide['titulo']); ?>"
->
+                                <a
+                                    href="curso.php?id=<?php echo (int)$slide['curso_id']; ?>"
+                                    class="btn"
+                                >
+                                    <?php echo htmlspecialchars($slide['texto_botao'] ?? 'Ver curso'); ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
 
-<div class="slide-content">
-<h2><?php echo htmlspecialchars($slide['titulo']); ?></h2>
+                </div>
+            <?php else: ?>
+                <h2>Slideshow</h2>
+                <p>Sem slides no banco por enquanto.</p>
+            <?php endif; ?>
 
-<p><?php echo htmlspecialchars($slide['descricao']); ?></p>
+        </div>
+    </section>
 
-<a
-href="<?php echo htmlspecialchars($slide['link_botao']); ?>"
-class="btn"
->
-<?php echo htmlspecialchars($slide['texto_botao'] ?? 'Ver mais'); ?>
-</a>
+    <section class="cursos">
+        <div class="container">
 
-</div>
+            <h2>Meus Cursos</h2>
 
-</div>
+            <div class="cursos-grid">
 
-<?php endforeach; ?>
+                <div class="card-curso" style="display:flex;align-items:center;justify-content:center;min-height:320px;">
+                    <a href="admin/cursos/criar.php" class="btn">
+                        + Adicionar Curso
+                    </a>
+                </div>
 
-</div>
+                <?php if (!empty($cursos)): ?>
+                    <?php foreach ($cursos as $curso): ?>
+                        <div class="card-curso">
+                            <img
+                                src="assets/uploads/<?php echo htmlspecialchars($curso['imagem']); ?>"
+                                alt="<?php echo htmlspecialchars($curso['titulo']); ?>"
+                            >
 
-<?php else: ?>
+                            <h3><?php echo htmlspecialchars($curso['titulo']); ?></h3>
 
-<h2>Slideshow</h2>
-<p>Sem slides no banco por enquanto.</p>
+                            <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
 
-<?php endif; ?>
+                            <a
+                                href="curso.php?id=<?php echo (int)$curso['id']; ?>"
+                                class="btn"
+                            >
+                                Ver curso
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Nenhum curso cadastrado no momento.</p>
+                <?php endif; ?>
 
-</div>
-</section>
+            </div>
 
-
-<!-- CURSOS -->
-<section class="cursos">
-<div class="container">
-
-<h2>Meus Cursos</h2>
-
-<div class="cursos-grid">
-
-<!-- CARD ADICIONAR CURSO -->
-<div class="card-curso" style="display:flex;align-items:center;justify-content:center;min-height:320px;">
-<a href="admin/cursos/criar.php" class="btn">
-+ Adicionar Curso
-</a>
-</div>
-
-<?php if (!empty($cursos)): ?>
-
-<?php foreach ($cursos as $curso): ?>
-
-<div class="card-curso">
-
-<img
-src="assets/uploads/<?php echo htmlspecialchars($curso['imagem']); ?>"
-alt="<?php echo htmlspecialchars($curso['titulo']); ?>"
->
-
-<h3><?php echo htmlspecialchars($curso['titulo']); ?></h3>
-
-<p><?php echo htmlspecialchars($curso['descricao']); ?></p>
-
-<a
-href="curso.php?id=<?php echo $curso['id']; ?>"
-class="btn"
->
-Ver curso
-</a>
-
-</div>
-
-<?php endforeach; ?>
-
-<?php endif; ?>
-
-</div>
-
-</div>
-</section>
+        </div>
+    </section>
 
 </main>
 
 <?php include 'includes/footer.php'; ?>
 
-
 <?php if ($mostrarModal): ?>
-<?php include 'includes/modal.php'; ?>
+    <?php include 'includes/modal.php'; ?>
 <?php endif; ?>
-
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/modal.js"></script>

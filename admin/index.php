@@ -1,4 +1,7 @@
-<?php require_once '../config/config.php'; ?>
+<?php
+require_once '../config/config.php';
+require_once 'middleware.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,13 +13,22 @@
 <body>
     <div class="container" style="padding: 40px 0;">
         <h1>Painel Administrativo</h1>
+        <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?></p>
         <hr style="margin: 20px 0;">
-        
-        <ul>
-            <li><a href="cursos/listar.php">Gerenciar Cursos</a></li>
-            <li><a href="slideshow/listar.php">Gerenciar Slideshow</a></li>
-            <li><a href="../index.php">Ver site</a></li>
-        </ul>
+
+        <div style="background:#fff; padding:20px; border-radius:8px;">
+            <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px;">
+                    <a href="cursos/listar.php" class="btn">Gerenciar Cursos</a>
+                </li>
+                <li style="margin-bottom:12px;">
+                    <a href="slideshow/listar.php" class="btn">Gerenciar Slideshow</a>
+                </li>
+                <li>
+                    <a href="../index.php" class="btn" style="background:#555;">Ver site</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
