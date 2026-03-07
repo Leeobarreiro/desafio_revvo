@@ -53,7 +53,7 @@ try {
                             <img src="assets/uploads/<?php echo htmlspecialchars($curso['imagem']); ?>" alt="<?php echo htmlspecialchars($curso['titulo']); ?>">
                             <h3><?php echo htmlspecialchars($curso['titulo']); ?></h3>
                             <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
-                            <a href="<?php echo htmlspecialchars($curso['link_botao']); ?>" class="btn">Ver curso</a>
+                            <a href="curso.php?id=<?php echo $curso['id']; ?>" class="btn">Ver curso</a>
                         </div>
                     <?php endforeach; ?>
                 </div>
