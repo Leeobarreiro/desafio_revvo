@@ -40,8 +40,6 @@ try {
 <main>
 
     <section class="banner">
-        <div class="container">
-
         <?php if (!empty($slides)): ?>
             <div class="slideshow" id="slideshow">
 
@@ -75,25 +73,18 @@ try {
                 </div>
             </div>
         <?php else: ?>
-            <h2>Slideshow</h2>
-            <p>Cadastre um slide e ele aparecerá aqui.</p>
+            <div class="container" style="padding: 40px 20px;">
+                <h2>Slideshow</h2>
+                <p>Cadastre um slide e ele aparecerá aqui.</p>
+            </div>
         <?php endif; ?>
-
-        </div>
     </section>
 
     <section class="cursos">
         <div class="container">
-
             <h2>Meus Cursos</h2>
 
             <div class="cursos-grid">
-
-                <div class="card-curso" style="display:flex;align-items:center;justify-content:center;min-height:320px;">
-                    <a href="admin/cursos/criar.php" class="btn">
-                        + Adicionar Curso
-                    </a>
-                </div>
 
                 <?php if (!empty($cursos)): ?>
                     <?php foreach ($cursos as $curso): ?>
@@ -103,24 +94,41 @@ try {
                                 alt="<?php echo htmlspecialchars($curso['titulo']); ?>"
                             >
 
-                            <h3><?php echo htmlspecialchars($curso['titulo']); ?></h3>
+                            <div class="card-curso-content">
+                                <h3><?php echo htmlspecialchars($curso['titulo']); ?></h3>
 
-                            <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
+                                <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
 
-                            <a
-                                href="curso.php?id=<?php echo (int)$curso['id']; ?>"
-                                class="btn"
-                            >
-                                Ver curso
-                            </a>
+                                <a
+                                    href="curso.php?id=<?php echo (int)$curso['id']; ?>"
+                                    class="btn"
+                                >
+                                    Ver curso
+                                </a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Nenhum curso cadastrado no momento.</p>
                 <?php endif; ?>
 
-            </div>
+               <div class="card-add">
+                <a href="admin/cursos/criar.php">
 
+                    <div class="add-box">
+
+                        <div class="add-icon">
+                +
+                        </div>
+
+                    <div>
+                        Adicionar<br>Curso
+                    </div>
+
+                    </div>
+
+                </a>
+                </div>
+
+            </div>
         </div>
     </section>
 
