@@ -6,6 +6,16 @@
     .header-content {
         flex-wrap: wrap;
     }
+
+    .header-search {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .slide-content {
+        max-width: 80%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -13,7 +23,27 @@
         grid-template-columns: 1fr;
     }
 
-    .header-search input {
-        width: 100%;
+    .slide,
+    .slide img,
+    .slideshow {
+        min-height: 340px;
+        height: 340px;
+    }
+
+    .slide-content {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        max-width: none;
+        padding: 18px;
+    }
+
+    .slide-content h2 {
+        font-size: 24px;
+    }
+
+    .header-user {
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 }

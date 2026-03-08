@@ -42,36 +42,42 @@ try {
     <section class="banner">
         <div class="container">
 
-            <?php if (!empty($slides)): ?>
-                <div class="slideshow">
+        <?php if (!empty($slides)): ?>
+            <div class="slideshow" id="slideshow">
 
-                    <?php foreach ($slides as $slide): ?>
-                        <div class="slide">
-                            <img
-                                src="assets/uploads/<?php echo htmlspecialchars($slide['imagem']); ?>"
-                                alt="<?php echo htmlspecialchars($slide['titulo']); ?>"
+                <?php foreach ($slides as $index => $slide): ?>
+                    <div class="slide <?php echo $index === 0 ? 'active' : ''; ?>">
+                        <img
+                            src="assets/uploads/<?php echo htmlspecialchars($slide['imagem']); ?>"
+                            alt="<?php echo htmlspecialchars($slide['titulo']); ?>"
+                        >
+
+                        <div class="slide-content">
+                            <h2><?php echo htmlspecialchars($slide['titulo']); ?></h2>
+                            <p><?php echo htmlspecialchars($slide['descricao']); ?></p>
+                            <a
+                                href="curso.php?id=<?php echo (int)$slide['curso_id']; ?>"
+                                class="btn"
                             >
-
-                            <div class="slide-content">
-                                <h2><?php echo htmlspecialchars($slide['titulo']); ?></h2>
-
-                                <p><?php echo htmlspecialchars($slide['descricao']); ?></p>
-
-                                <a
-                                    href="curso.php?id=<?php echo (int)$slide['curso_id']; ?>"
-                                    class="btn"
-                                >
-                                    <?php echo htmlspecialchars($slide['texto_botao'] ?? 'Ver curso'); ?>
-                                </a>
-                            </div>
+                                <?php echo htmlspecialchars($slide['texto_botao'] ?? 'Ver curso'); ?>
+                            </a>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
 
+                <button class="slide-nav slide-prev" type="button">&#10094;</button>
+                <button class="slide-nav slide-next" type="button">&#10095;</button>
+
+                <div class="slide-dots">
+                    <?php foreach ($slides as $index => $slide): ?>
+                        <span class="slide-dot <?php echo $index === 0 ? 'active' : ''; ?>" data-slide="<?php echo $index; ?>"></span>
+                    <?php endforeach; ?>
                 </div>
-            <?php else: ?>
-                <h2>Slideshow</h2>
-                <p>Sem slides no banco por enquanto.</p>
-            <?php endif; ?>
+            </div>
+        <?php else: ?>
+            <h2>Slideshow</h2>
+            <p>Sem slides no banco por enquanto.</p>
+        <?php endif; ?>
 
         </div>
     </section>
