@@ -76,7 +76,7 @@ try {
             </div>
         <?php else: ?>
             <h2>Slideshow</h2>
-            <p>Sem slides no banco por enquanto.</p>
+            <p>Cadastre um slide e ele aparecerá aqui.</p>
         <?php endif; ?>
 
         </div>

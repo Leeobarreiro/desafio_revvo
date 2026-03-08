@@ -1,7 +1,7 @@
 <header class="header">
     <div class="container header-content">
         <div class="logo">
-            <a href="index.php" style="text-decoration:none; color:inherit;">Nada aqui</a>
+            <a href="index.php" style="text-decoration:none; color:inherit;">Curso teste</a>
         </div>
 
         <div class="header-search">
