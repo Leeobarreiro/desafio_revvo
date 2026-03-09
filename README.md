@@ -69,39 +69,6 @@ Cada slide pode ser vinculado a um curso.
 
 ---
 
-# Estrutura do projeto
-
-
-desafio_revvo
-│
-├── admin
-│ ├── cursos
-│ └── slideshow
-│
-├── assets
-│ ├── css
-│ ├── js
-│ ├── images
-│ └── uploads
-│
-├── config
-│ ├── config.php
-│ └── database.php
-│
-├── includes
-│ ├── header.php
-│ ├── footer.php
-│ └── modal.php
-│
-├── index.php
-├── curso.php
-├── login.php
-├── cadastro.php
-└── logout.php
-
-
----
-
 # Instalação do projeto
 
 1. Clonar o repositório
