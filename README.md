@@ -98,6 +98,10 @@ config/database.php
 
 http://localhost/desafio_revvo
 
+5. Logar como administrador ao acessar o sistema
+   Loguin: Admin
+   Senha:123456
+
 ---
 
 # Automatização de tarefas
