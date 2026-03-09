@@ -93,25 +93,17 @@ config/database.php
 http://localhost/desafio_revvo
 
 ---
-## Usuário administrador inicial
+## Banco de dados
 
-Para acessar o painel administrativo é necessário existir um usuário com perfil **admin** no banco de dados.
+Importe o arquivo:
 
-Caso o banco esteja vazio, execute o seguinte SQL para criar um usuário administrador inicial:
+database.sql
 
-```sql
-INSERT INTO usuarios (nome, email, senha, tipo)
-VALUES (
-  'Administrador',
-  'admin@revvo.com',
-  '$2y$10$KqV8G3F9Yz1b5e8H7FQ2uO1yHnL9Y9fQFJ5g8Y4YwTn0B8p3eG2bC',
-  'admin'
-);
-```
-usuario: Administrador
+Isso criará as tabelas necessárias para o funcionamento do sistema:
 
-Senha: 123456
-
+- usuarios
+- cursos
+- slideshow
 ---
 
 # Automatização de tarefas
