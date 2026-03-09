@@ -18,55 +18,101 @@ $slides = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Slideshow</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
 </head>
 <body>
-<div class="container" style="padding:40px 0;">
-    <h1>Gerenciar Slideshow</h1>
 
-    <div style="margin:20px 0;">
-        <a href="criar.php" class="btn">Adicionar Slide</a>
-        <a href="../index.php" class="btn" style="background:#555;">Voltar</a>
+<div class="container admin-page">
+
+    <div class="admin-header">
+        <div class="admin-title">
+            <h1>Gerenciar Slideshow</h1>
+            <p>Cadastre e organize os slides exibidos na página inicial.</p>
+        </div>
+
+        <div class="admin-actions">
+            <a href="criar.php" class="btn">Adicionar Slide</a>
+            <a href="../index.php" class="btn btn-dark">Voltar</a>
+        </div>
     </div>
 
     <?php if (isset($_GET['sucesso'])): ?>
-        <p style="color: green; margin-bottom: 20px;">Operação realizada com sucesso!</p>
+        <div class="admin-alert admin-alert-success">
+            Operação realizada com sucesso!
+        </div>
     <?php endif; ?>
 
-    <table border="1" cellpadding="10" cellspacing="0" width="100%" style="background:#fff;">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Imagem</th>
-                <th>Título</th>
-                <th>Curso Vinculado</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($slides)): ?>
-                <?php foreach ($slides as $slide): ?>
+    <div class="admin-card">
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
                     <tr>
-                        <td><?php echo $slide['id']; ?></td>
-                        <td>
-                            <img src="../../assets/uploads/<?php echo htmlspecialchars($slide['imagem']); ?>" width="120" alt="<?php echo htmlspecialchars($slide['titulo']); ?>">
-                        </td>
-                        <td><?php echo htmlspecialchars($slide['titulo']); ?></td>
-                        <td><?php echo htmlspecialchars($slide['curso_titulo'] ?? 'Curso não encontrado'); ?></td>
-                        <td><?php echo $slide['ativo'] ? 'Ativo' : 'Inativo'; ?></td>
-                        <td>
-                            <a href="editar.php?id=<?php echo $slide['id']; ?>">Editar</a> |
-                            <a href="excluir.php?id=<?php echo $slide['id']; ?>" onclick="return confirm('Excluir slide?')">Excluir</a>
-                        </td>
+                        <th>ID</th>
+                        <th>Imagem</th>
+                        <th>Título</th>
+                        <th>Curso Vinculado</th>
+                        <th>Status</th>
+                        <th style="width: 170px;">Ações</th>
                     </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="6">Nenhum slide cadastrado.</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+                    <?php if (!empty($slides)): ?>
+                        <?php foreach ($slides as $slide): ?>
+                            <tr>
+                                <td>
+                                    <span class="admin-id">#<?php echo (int)$slide['id']; ?></span>
+                                </td>
+                                <td>
+                                    <img
+                                        src="../../assets/uploads/<?php echo htmlspecialchars($slide['imagem']); ?>"
+                                        alt="<?php echo htmlspecialchars($slide['titulo']); ?>"
+                                        class="admin-thumb admin-thumb-lg"
+                                    >
+                                </td>
+                                <td>
+                                    <span class="admin-course-name">
+                                        <?php echo htmlspecialchars($slide['titulo']); ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <?php echo htmlspecialchars($slide['curso_titulo'] ?? 'Curso não encontrado'); ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($slide['ativo'])): ?>
+                                        <span class="admin-badge admin-badge-success">Ativo</span>
+                                    <?php else: ?>
+                                        <span class="admin-badge admin-badge-muted">Inativo</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <div class="admin-actions-links">
+                                        <a href="editar.php?id=<?php echo (int)$slide['id']; ?>" class="admin-link admin-link-edit">
+                                            Editar
+                                        </a>
+                                        <a
+                                            href="excluir.php?id=<?php echo (int)$slide['id']; ?>"
+                                            class="admin-link admin-link-delete"
+                                            onclick="return confirm('Excluir slide?')"
+                                        >
+                                            Excluir
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="6" class="admin-empty">
+                                Nenhum slide cadastrado.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
+
 </body>
 </html>

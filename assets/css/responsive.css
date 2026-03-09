@@ -1,49 +1,437 @@
-@media (max-width: 1024px) {
-    .cursos-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* =========================================================
+   ATÉ 1200px
+========================================================= */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 18px;
     }
 
+    .cursos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .slide-content {
+        left: 40px;
+        top: 60px;
+        max-width: 320px;
+    }
+}
+
+
+/* =========================================================
+   ATÉ 992px (tablet)
+========================================================= */
+@media (max-width: 992px) {
     .header-content {
-        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .logo img {
+        height: 38px;
     }
 
     .header-search {
-        order: 3;
+        max-width: 300px;
+    }
+
+    .header-search input {
+        height: 44px;
+        font-size: 13px;
+    }
+
+    .user-avatar {
+        width: 46px;
+        height: 46px;
+    }
+
+    .user-name {
+        font-size: 15px;
+    }
+
+    .slideshow,
+    .slide,
+    .slide img {
+        height: 320px;
+    }
+
+    .slide-content {
+        top: 44px;
+        left: 28px;
+        max-width: 280px;
+        padding: 18px 20px;
+    }
+
+    .slide-content h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .slide-content p {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .slide-nav {
+        font-size: 42px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .card-add {
+        min-height: 320px;
+    }
+
+    .footer-content {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .footer-logo,
+    .footer-contact,
+    .footer-social {
         width: 100%;
         max-width: 100%;
     }
 
-    .slide-content {
-        max-width: 80%;
+    .footer-logo img {
+        height: 44px;
+    }
+
+    .modal-large {
+        max-width: 90%;
+    }
+
+    .modal-image img {
+        height: 220px;
+    }
+
+    .modal-content {
+        padding: 32px 24px 34px;
+    }
+
+    .modal-content h2 {
+        font-size: 28px;
+    }
+
+    .modal-content p {
+        font-size: 15px;
+    }
+
+    .modal-action-btn {
+        min-width: 260px;
+        padding: 14px 22px;
     }
 }
 
-@media (max-width: 640px) {
-    .cursos-grid {
-        grid-template-columns: 1fr;
+
+/* =========================================================
+   ATÉ 768px (tablet menor / mobile grande)
+========================================================= */
+@media (max-width: 768px) {
+    .header {
+        padding: 14px 0;
     }
 
-    .slide,
-    .slide img,
-    .slideshow {
-        min-height: 340px;
-        height: 340px;
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
     }
 
-    .slide-content {
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
-        max-width: none;
-        padding: 18px;
+    .logo {
+        width: 100%;
+        text-align: center;
     }
 
-    .slide-content h2 {
-        font-size: 24px;
+    .logo img {
+        margin: 0 auto;
+        height: 40px;
+    }
+
+    .header-search {
+        order: 2;
+        width: 100%;
+        max-width: 100%;
     }
 
     .header-user {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .user-profile {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .header-auth {
+        justify-content: center;
         flex-wrap: wrap;
-        justify-content: flex-end;
+    }
+
+    .slideshow,
+    .slide,
+    .slide img {
+        height: 280px;
+    }
+
+    .slide-content {
+        top: auto;
+        bottom: 24px;
+        left: 20px;
+        right: 20px;
+        max-width: none;
+        width: auto;
+        padding: 16px 18px;
+    }
+
+    .slide-content h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .slide-content p {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .slide-content .btn {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    .slide-prev {
+        left: 10px;
+    }
+
+    .slide-next {
+        right: 10px;
+    }
+
+    .slide-dots {
+        bottom: 12px;
+        padding: 5px 10px;
+    }
+
+    .cursos {
+        padding: 0 0 32px;
+    }
+
+    .cursos h2 {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .card-curso img {
+        height: 140px;
+    }
+
+    .card-add {
+        min-height: 300px;
+    }
+
+    .add-box {
+        font-size: 15px;
+    }
+
+    .add-icon {
+        font-size: 38px;
+    }
+
+    .footer-top {
+        padding: 28px 0 22px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .modal-large {
+        max-width: 95%;
+    }
+
+    .modal-image img {
+        height: 180px;
+    }
+
+    .modal-content {
+        padding: 26px 18px 28px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .modal-action-btn {
+        width: 100%;
+        min-width: auto;
+        font-size: 15px;
+        padding: 14px 20px;
+    }
+
+    .modal-close {
+        width: 46px;
+        height: 46px;
+        font-size: 34px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+
+/* =========================================================
+   ATÉ 576px (mobile)
+========================================================= */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .header-search input {
+        height: 42px;
+        padding: 0 44px 0 14px;
+        font-size: 13px;
+    }
+
+    .search-icon {
+        right: 14px;
+        font-size: 18px;
+    }
+
+    .user-avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .user-welcome-text {
+        font-size: 11px;
+    }
+
+    .user-name {
+        font-size: 14px;
+    }
+
+    .user-arrow {
+        font-size: 11px;
+    }
+
+    .user-dropdown {
+        min-width: 140px;
+    }
+
+    .slideshow,
+    .slide,
+    .slide img {
+        height: 240px;
+    }
+
+    .slide-content {
+        left: 14px;
+        right: 14px;
+        bottom: 18px;
+        padding: 14px 14px;
+    }
+
+    .slide-content h2 {
+        font-size: 17px;
+    }
+
+    .slide-content p {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .slide-content .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .slide-nav {
+        font-size: 34px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card-curso img {
+        height: 170px;
+    }
+
+    .card-add {
+        min-height: 220px;
+    }
+
+    .card-curso-content {
+        padding: 14px;
+    }
+
+    .card-curso h3 {
+        font-size: 13px;
+    }
+
+    .card-curso p {
+        font-size: 12px;
+    }
+
+    .card-curso .btn {
+        font-size: 11px;
+        padding: 11px 12px;
+    }
+
+    .footer-logo img {
+        height: 38px;
+    }
+
+    .footer-logo p,
+    .footer-contact p,
+    .footer-social p {
+        font-size: 12px;
+    }
+
+    .social-icons a {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    .modal-image img {
+        height: 150px;
+    }
+
+    .modal-content h2 {
+        font-size: 18px;
+    }
+
+    .modal-content p {
+        font-size: 13px;
+    }
+
+    .modal-close {
+        width: 42px;
+        height: 42px;
+        font-size: 28px;
     }
 }
