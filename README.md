@@ -77,25 +77,7 @@ Cada slide pode ser vinculado a um curso.
 git clone https://github.com/seu_usuario/desafio_revvo
 
 
-2. Criar o banco de dados MySQL
-
-3. Importar o arquivo SQL (caso exista)
-
-4. Configurar conexão no arquivo:
-
-
-config/database.php
-
-
-5. Rodar o projeto no servidor local (ex: XAMPP)
-
-
-http://localhost/desafio_revvo
-
----
-## Banco de dados
-
-Importe o arquivo:
+2. Importe o arquivo:
 
 database.sql
 
@@ -104,6 +86,18 @@ Isso criará as tabelas necessárias para o funcionamento do sistema:
 - usuarios
 - cursos
 - slideshow
+
+3. Configurar conexão no arquivo:
+
+
+config/database.php
+
+
+4. Rodar o projeto no servidor local (ex: XAMPP)
+
+
+http://localhost/desafio_revvo
+
 ---
 
 # Automatização de tarefas
